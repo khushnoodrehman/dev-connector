@@ -8,6 +8,7 @@ const { body, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
 
+
 // @route   POST api/users
 // @desc    Register user
 // @access  Public
@@ -62,13 +63,10 @@ router.post('/', [
             { expiresIn: 360000 },
             (err, token) => {
                 if (err) throw err;
-                res.json({token})
+                res.json({ token })
             }
         )
-
-
-
-        res.send('User Registered!')
+        
 
     } catch (err) {
         console.log(err.message);

@@ -18,7 +18,29 @@ const userSchema = new Schema({
     avatar: {
         type: String
     },
-    date: {
+    followers: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'user'
+        }
+    ],
+    following: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'user'
+        }
+    ],
+    bookmarks: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'post'
+        }
+    ],
+    preferences: {
+        theme: String,
+        notifications: Boolean
+    },
+    createdAt: {
         type: Date,
         default: Date.now
     }

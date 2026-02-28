@@ -29,6 +29,7 @@ const profileSchema = new Schema({
     githubusername: {
         type: String
     },
+    coverImage: String,
     experience: [
         {
             title: {
@@ -105,10 +106,13 @@ const profileSchema = new Schema({
             type: String
         }
     },
-    date: {
+    createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
+profileSchema.index({ skills: 1 })
+profileSchema.index({ location: 1 })
 
 module.exports = Profile = mongoose.model('profile', profileSchema);

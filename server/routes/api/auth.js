@@ -23,7 +23,6 @@ router.get('/', auth, async (req, res) => {
         res.status(401).json({ msg: 'User not found!' });
     }
 
-
     res.send('Auth Route')
 });
 
@@ -36,7 +35,6 @@ router.post('/', [
     body('email', 'Please include a valid email').isEmail(),
     body('password', 'Passowrd is required!').exists()
 ], async (req, res) => {
-
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -73,7 +71,7 @@ router.post('/', [
             }
         )
 
-        res.send('User Registered!')
+        res.send('Logged In successfully!')
 
     } catch (err) {
         console.log(err.message);
